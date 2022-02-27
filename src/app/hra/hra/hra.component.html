@@ -1,0 +1,75 @@
+<table class="table table-sm table-borderless w-100">
+    <thead>
+        <th></th>
+        <th class="border text-center">Monthly</th>
+        <th class="border text-center">Yearly</th>
+    </thead>
+    <tbody (keyup)="calculateHRA()">
+        <tr>
+            <td>BASIC + DA</td>
+            <td class="bg-warning w-25">
+                <input type="number" placeholder="₹" name="MonthlyBasicDA" [(ngModel)]="MonthlyBasicDA" id="MonthlyBasicDA"
+                    class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary w-25">
+               {{YearlyBasicDA || 0| currency : "INR"}}
+        </tr>
+        <tr>
+            <td>HRA</td>
+            <td class="bg-warning w-25">
+                <input type="number" placeholder="₹" name="MonthlyHRA" [(ngModel)]="MonthlyHRA" id="MonthlyHRA"
+                    class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary w-25">
+              {{YearlyHRA || 0| currency : "INR"}}
+            </td>
+        </tr>
+        <tr>
+            <td>RENT</td>
+            <td class="bg-warning w-25">
+                <input type="number" placeholder="₹" name="MonthlyRENT" [(ngModel)]="MonthlyRENT" id="MonthlyRENT"
+                    class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary w-25">
+              {{YearlyRENT  || 0| currency : "INR"}}
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td colspan="3">ACTUAL HRA RECEIVED</td>
+
+            <td class="bg-secondary w-25">
+               {{HRAReceived  || 0| currency : "INR"}}
+            </td>
+        </tr>
+        <!-- <br>
+        <tr>
+            <td colspan="3">BASIC+DA(1.50% IN METRO, 2.40% IN NON-METRO</td>
+            <td class="bg-warning w-25">
+                <input type="number" placeholder="%" name="percentageVal" [(ngModel)]="percentageVal" id="percentageVal"
+                    class="form-control rounded-0 border-0 bg-warning w-10">
+            </td>
+            <td class="bg-secondary w-25">
+                <input type="number" placeholder="₹" name="TOrF" [(ngModel)]="TOrF" id="TOrF"
+                    class="form-control rounded-0 border-0 bg-secondary" disabled>
+            </td>
+        </tr> -->
+        <br>
+        <tr>
+            <td colspan="3">ACTUAL RENT PAID - 10% OF BASIC + DA</td>
+
+            <td class="bg-secondary w-25">
+                {{ActualRent  || 0| currency : "INR"}}
+            </td>
+        </tr>
+        <br>
+        <br>
+        <tr class="bg-final">
+            <td colspan="3">EXEMPTION</td>
+
+            <td class="bg-info w-25">
+                {{Exemption  || 0| currency : "INR" }}
+            </td>
+        </tr>
+    </tbody>
+</table>

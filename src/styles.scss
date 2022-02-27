@@ -1,0 +1,98 @@
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+html,body{
+    margin: 0;
+    padding: 0;
+    font-size: .9rem;
+}
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+    background-color: transparent;
+}
+
+.bg-warning{
+    background-color:#FCFC62!important;
+}
+.bg-secondary{
+background-color: #A3A3A3!important;
+color: white;
+}
+.bg-info{
+background-color: rgb(28, 28, 80)!important;
+color: white;
+::placeholder{
+    color: white;
+}
+:-ms-input-placeholder{
+    
+    color: white;
+}
+::-ms-input-placeholder{
+    
+    color: white;
+}
+}
+tbody{
+    border-top: 0!important;
+}
+td{ 
+    ::placeholder{
+        color: black;
+    }
+    :-ms-input-placeholder{
+        
+        color: black;
+    }
+    ::-ms-input-placeholder{
+        
+        color: black;
+    }
+    input:hover:disabled{
+        cursor: no-drop;
+    }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+}
+
+tr:nth-child(even){
+    background-color: #e6e7db;
+    font-weight: 500;
+    // color: white;
+}
+tr:nth-child(odd){
+    background-color: #C9C9C9;
+    font-weight: 500;
+    // color: white;
+}
+.bg-final{
+    background-color: #f5d7d7!important;
+    color: black;
+    // color: white;
+}
+
+.bg-blue{
+    background-color: #FEFFEA!important;
+    font-weight: 500;
+    // color: white;
+}
+.bg-light-blue{
+    background-color: #C9C9C9!important;
+    font-weight: 500;
+    // color: white;
+}
+.bg-sec-80-c{
+    background-color: #d8c0b0!important;
+    // color: white;
+}

@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">TAX CALCULATIONS</h2>
+        </div>
+        <div class="col-md-7 income-container">
+            <h4 class="text-center">Income Calculations</h4>
+            <app-income [Inputhra]="hra" (setOutput)="getInputs($event)"></app-income>
+        </div>
+        <div class="col-md-5 hra-and-result-container">
+            <h4 class="text-center">HRA Calculations</h4>
+            <app-hra (hraExemption)="hra= $event"></app-hra>
+            <hr class="bg-danger">
+            <h3>Tax Payable</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-result [taxableIncome]="taxableIncome" [below60]="below60"></app-result>
+                       </div>
+                </div>
+        </div>
+       
+    </div>
+</div>
+<br>
+<footer class="footer bg-secondary">
+<h6 class="text-center">This tool is designed based on excel provided by Money Purse Youtube Channel</h6>
+
+</footer>

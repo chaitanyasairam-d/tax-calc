@@ -1,0 +1,327 @@
+<table class="table table-sm table-borderless">
+    <tbody (keyup)="calculateTax()" >
+        <tr class="bg-warning">
+            <td colspan="2" class="table-warning">
+                <label>AGE</label>
+            </td>
+            <td>
+                <input type="number" placeholder="Eg: 40" name="age" [(ngModel)]="age" id="total-income"
+                class="form-control rounded-0 border-0 bg-warning">
+            </td>
+        </tr>
+        <tr>
+            
+            <td colspan="2" class="table-info">
+                <label>Total Annual Income (A)</label>
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="totalIncome" [(ngModel)]="totalIncome" id="total-income"
+                    class="form-control rounded-0 border-0 bg-warning">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="table-secondary">
+                <h5>DEDUCTIONS</h5>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="table-primary">
+                <h5> UNDER SECTION 80</h5>
+            </td>
+        </tr>
+        <!-- SECTION B START -->
+        <tr>
+            <td colspan="2" class="table-warning text-center">
+                <strong> UNDER SECTION 80C (B)</strong>
+            </td>
+        </tr>
+        <ng-container class="B-Deduction">
+            <tr>
+                <td>
+                    LIFE INSURANCE PREMIUM
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹"name="lifeInsurance" [(ngModel)]="lifeInsurance"
+                        id="lifeIsurance" class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    UNIT LINKED INSURANCE
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹" name="unitInsurance" [(ngModel)]="unitInsurance"
+                        id="unitInsurance" class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ELSS
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹" name="elss" id="elss" [(ngModel)]="elss"
+                        class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    CHILDREN's TUTION FEES
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹" name="childTutionFee" [(ngModel)]="childTutionFee"
+                        id="childTutionFee" class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    EPF / NPS
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹" name="epfOrnps" [(ngModel)]="epfOrnps" id="epfOrnps"
+                        class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    PPF
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹" name="ppf" [(ngModel)]="ppf" id="ppf"
+                        class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    CONTRIBUTION TO SSY
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹" name="ssy" [(ngModel)]="ssy" id="ssy"
+                        class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    TAX SAVING FD
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹" name="FD" [(ngModel)]="FD" id="FD"
+                        class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    NSC
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹" name="NSC" [(ngModel)]="NSC" id="NSC"
+                        class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    PRINCIPAL ON HOME LOAN
+                </td>
+                <td class="bg-warning">
+                    <input type="number" placeholder="₹" name="homeLoan" [(ngModel)]="homeLoan" id="homeLoan"
+                        class="form-control rounded-0 border-0 bg-warning">
+                </td>
+            </tr>
+            <tr class="bg-sec-80-c">
+                <td>
+                    GROSS TOTAL
+                </td>
+                <td class="bg-secondary">
+                  {{GrossUNDER80C || 0 | currency:'INR'}}
+                </td>
+            </tr>
+        </ng-container>
+        <!-- SECTION B END -->
+
+        <br>
+        <!-- SECTION C START -->
+        <tr class="bg-sec-80-c">
+            <td>
+                NPS 80CCD(1B) (C)
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="NPSCCD" [(ngModel)]="NPSCCD" id="NPSCCD"
+                    class="form-control rounded-0 border-0 bg-warning">
+            </td>
+        </tr>
+        <!-- SECTION C END -->
+        <br>
+        <!-- TOTAL DEDUCTION FOR SECTION (B + C)  -->
+        <tr class="bg-sec-80-c">
+            <td colspan="2">
+                NET DEDUCTIONS UNDER SEC 80C (B+C)
+            </td>
+            <td class="bg-secondary">
+              {{NetUNDER80C || 0 | currency:'INR'}}
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                SECTION 80GG HRA (D) 
+               <fa-icon [icon]="faInfoCircle" size="lg" tooltip="please check HRA CALCULATION TAB"></fa-icon>
+     
+
+            </td>
+            <td class="bg-warning">
+                {{Inputhra || 0 | currency:'INR'}}
+
+            </td>
+            <td class="bg-secondary">
+              {{Inputhra || 0 | currency:'INR'}}
+            </td>
+
+        </tr>
+        <br>
+        <tr>
+            <td>
+                SEC 80E INTEREST ON EDUCATIONAL LOAN (E)
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="educationLoan" [(ngModel)]="educationLoan"
+                    id="educationLoan" class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary">
+                {{educationLoan || 0  | currency:'INR'}}
+            </td>
+
+        </tr>
+        <br>
+        <tr>
+            <td>
+                SEC 80EEA INTEREST ON HOME LOAN (F)
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="homeLoanInterest" [(ngModel)]="homeLoanInterest"
+                    id="homeLoanInterest" class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary">
+               {{homeLoanInterest || 0 | currency:'INR'}}
+            </td>
+
+        </tr>
+        <br>
+        <tr class="bg-light-blue">
+            <td colspan="3">
+                SECTION 80D (G)
+            </td>
+        </tr>
+        <tr class="bg-blue">
+            <td>
+                1.HEALTH INSURANCE FOR SELF
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="selfInsurance" [(ngModel)]="selfInsurance"
+                    id="selfInsurance" class="form-control rounded-0 border-0 bg-warning">
+            </td>
+        </tr>
+        <tr class="bg-blue">
+            <td>
+                2.HEALTH INSURANCE FOR PARENTS
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="parentsInsurance" [(ngModel)]="parentsInsurance"
+                    id="parentsInsurance" class="form-control rounded-0 border-0 bg-warning">
+            </td>
+        </tr>
+        <tr class="bg-light-blue">
+            <td colspan="2">
+                TOTAL DEDUCTION UNDER 80D (G)
+            </td>
+            <td class="bg-secondary">
+           {{section80D || 0 | currency:'INR'}}
+
+            </td>
+        </tr>
+        <br>
+        <br>
+        <tr >
+            <td>
+                SECTION 24B HOME LOAN INTEREST (H)
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="homeLoan24B" [(ngModel)]="homeLoan24B" id="homeLoan24B"
+                    class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary">
+              {{homeLoan24B || 0 | currency:'INR'}}
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                SECTION 80EEB INTEREST ON EV (I)
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="EVInterest" [(ngModel)]="EVInterest" id="EVInterest"
+                    class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary">
+               {{EVInterest || 0 | currency:'INR'}}
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                STANDARD DEDUCTION (J)
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="standardDeduction" [(ngModel)]="standardDeduction"
+                    id="standardDeduction" class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary">
+             {{standardDeduction || 0 | currency:'INR'}}
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                LTA SECTION 10(5) (K)
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="LTA" id="LTA" [(ngModel)]="LTA"
+                    class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary">
+              {{LTA || 0 | currency:'INR'}}
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                OTHERS (L)
+            </td>
+            <td class="bg-warning">
+                <input type="number" placeholder="₹" name="OTHERS" id="OTHERS" [(ngModel)]="OTHERS"
+                    class="form-control rounded-0 border-0 bg-warning">
+            </td>
+            <td class="bg-secondary">
+              {{OTHERS || 0 | currency:'INR'}}
+            </td>
+        </tr>
+        <br>
+        <tr class="bg-final">
+            <td colspan="2">
+                TOTAL DEDUCTIONS (M) (B+C+D+E+F+G+H+I+J+K+L)
+            </td>
+
+            <td class="bg-secondary">
+{{totalDeduction || 0 | currency:'INR'}}
+            </td>
+        </tr>
+        <br>
+        <tr class="bg-final">
+            <td colspan="2">
+                NET TAXABLE INCOME (A-M)
+            </td>
+
+            <td class="bg-info">
+              {{netTaxableIncome || 0 | currency:'INR'}}
+            </td>
+        </tr>
+    </tbody>
+</table>
